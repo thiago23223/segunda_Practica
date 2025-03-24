@@ -1,5 +1,6 @@
 import this
 import string
+import random
 
 def print_zen():
     vocales = "aeiouAEIOU"
@@ -110,6 +111,20 @@ def mentions_description(descriptions):
     print("Menciones de 'musica' : ", music)
     print("Menciones de 'charla' : ", chatting)
     print("Menciones de 'entretenimiento' : ", entertainment)
+
+def discount_code():
+    user = input("Ingrese un usuario de maximo 15 caracteres")
+    while(len(user)>15):
+        print("Se ha excedido de caracteres")
+        user = input("Ingrese un usuario de maximo 15 caracteres")
+    fecha = input("Ingrese la fecha (año-mes-dia)")
+    fecha = fecha.replace("-","")
+    cant_char = 30 - len(user) - len(fecha) - 2
+    random_char = ''.join(random.choice(string.ascii_letters + string.digits) for _ in range(cant_char))
+    code = user.upper() + "-" + fecha + "-" + random_char.upper()
+    print("Codigo de descuento: " + code)
+
+
 
 
 
