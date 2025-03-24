@@ -93,3 +93,23 @@ def velocity_clasification():
         print("Categoria: Normal")
     else:
         print("Categoria: Lento")
+
+def mentions_description(descriptions):
+    music = 0
+    chatting = 0
+    entertainment = 0
+    for line in descriptions:
+        words = line.split()
+        for word in words:
+            if(word.lower() == 'musica'):
+                music += 1
+            elif (word.lower() == 'charla'):
+                chatting += 1
+            elif (word.lower() == 'entretenimiento'):
+                entertainment += 1
+    print("Menciones de 'musica' : ", music)
+    print("Menciones de 'charla' : ", chatting)
+    print("Menciones de 'entretenimiento' : ", entertainment)
+
+
+
