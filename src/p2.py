@@ -124,6 +124,25 @@ def discount_code():
     code = user.upper() + "-" + fecha + "-" + random_char.upper()
     print("Codigo de descuento: " + code)
 
+def is_anagram():
+    palabra1 = input("Ingrese la primer palabra : ").lower()
+    while( not palabra1.isalpha()):
+        print("No ha ingresado una palabra valida")
+        palabra1 = input("Ingrese la primer palabra : ").lower()
+    palabra2 = input("Ingrese la segunda palabra : ").lower()
+    while( not palabra2.isalpha()):
+        print("No ha ingresado una palabra valida")
+        palabra2 = input("Ingrese la segunda palabra : ").lower()
+    if(len(palabra1) != len(palabra2)):
+        print("No son anagramas. ")
+    else:
+        if (sorted(palabra1)) == (sorted(palabra2)):
+            print("Son anagramas. ")
+        else:
+            print("No son anagramas. ")
+
+    
+
 
 
 
