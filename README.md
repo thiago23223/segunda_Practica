@@ -1,0 +1,1 @@
+installar version notebook == 24.3.1 (pip install notebook)
