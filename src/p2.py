@@ -1,4 +1,3 @@
-import this
 import string
 import random
 import operator
@@ -42,14 +41,13 @@ def longest_title(titles):
             longest = title
     print("El titulo mas largo es : ", longest)
 
-def word_conduct_code(code):
+def word_conduct_code(codes):
     word = input("Ingrese una palabra clave : ")
-    lines = code.splitlines()
-    for line in lines:
+    for line in codes:
         found = False
         i = 0
         while(not found and i < len(line)):
-            if(line[i] == word):
+            if line[i:i+len(word)] == word: 
                 found=True
                 print(line)
             else:
