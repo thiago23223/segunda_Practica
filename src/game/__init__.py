@@ -1,9 +1,9 @@
+
 def print_round(round,score_list):
-    i = 0
-    for player,stats in round.items():
+    sorted_round = dict(sorted(round.items(),key=lambda player: score_list[list(round.keys()).index(player[0])],reverse=True)) #usando una funcion lambda ordeno los puntajes de la lista de puntajes.
+    for player,stats in sorted_round.items():
         death = "1" if stats["deaths"] == True else "0"
-        print(f"{player} : bajas : {stats['kills']} - asistencias : {stats['assists']} - muertes : {death} - puntaje : {score_list[i]} \n ")
-        i += 1
+        print(f"{player} : bajas : {stats['kills']} - asistencias : {stats['assists']} - muertes : {death} - puntos : {score_list[list(round.keys()).index(player)]} \n ") #con el index obtengo el puntaje correspondiente del jugador
 
 def get_score(item):
         return item[1]['score']
@@ -12,7 +12,7 @@ def print_final_ranking(final_score):
     print("Ranking Final :")
     sorted_final_score = dict(sorted(final_score.items(), key=get_score, reverse=True)) #el get score me extrae de cada subdiccionario la puntuacion para ordenar segun ese criterio en el sorted y el reverse= true es para q sea de forma descendente
     for player,stats in sorted_final_score.items():
-        print(f"{player} : bajas : {stats['kills']} - asistencias : {stats['assists']} - muertes : {stats['deaths']} - puntaje : {stats['score']} - MVPs : {stats['MVPs']}  \n")
+        print(f"{player} : bajas : {stats['kills']} - asistencias : {stats['assists']} - muertes : {stats['deaths']} - puntos: {stats['score']} - MVPs : {stats['MVPs']}  \n")
 
 def make_final_score(rounds):
     jugadores = list(rounds[0].keys())
